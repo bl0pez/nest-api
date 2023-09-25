@@ -20,7 +20,7 @@ export class AuthController {
     description: 'Inicio de sesión exitoso',
   })
   @Post('login')
-  public async signin() {
-    return this.authService.login();
+  public async signin(@Body() dto: AuthDto) {
+    return this.authService.login(dto);
   }
 }
