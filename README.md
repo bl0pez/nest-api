@@ -4,13 +4,17 @@
 
 # Comandos
 
-## Generar modulo con nest cli `nest g module <nombre>`
+## Nestjs cli
+
+- Generar modulo `nest g module <nombre>`
+- Generar controlador `nest g controller <nombre>`
+- Generar servicio `nest g service <nombre>`
 
 ## Prisma cli
+
 - Generar modelo `npx prisma generate`
 - Generar migracion `npx prisma migrate dev --name <nombre>`
-- Generar modelo y migracion `npx prisma migrate dev --name <nombre> --create-only` 
-
+- Generar modelo y migracion `npx prisma migrate dev --name <nombre> --create-only`
 
 ## Stack
 
