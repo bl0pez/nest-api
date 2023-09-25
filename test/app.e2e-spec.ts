@@ -1,24 +1,33 @@
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { AppModule } from '../src/app.module';
+import { PrismaService } from 'src/prisma/prisma.service';
 
-describe('AppController (e2e)', () => {
+describe('App e2e', () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let app: INestApplication;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  let prisma: PrismaService;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
+  beforeAll(async () => {
+    const moduleRef: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
 
-    app = moduleFixture.createNestApplication();
+    app = moduleRef.createNestApplication();
+
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+        forbidNonWhitelisted: true,
+      }),
+    );
+
     await app.init();
+    await app.listen(3333);
+
+    prisma = app.get(PrismaService);
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
-  });
+  it.todo('should pass');
 });
