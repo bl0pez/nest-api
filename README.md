@@ -6,9 +6,17 @@
 
 ## Generar modulo con nest cli `nest g module <nombre>`
 
+## Prisma cli
+- Generar modelo `npx prisma generate`
+- Generar migracion `npx prisma migrate dev --name <nombre>`
+- Generar modelo y migracion `npx prisma migrate dev --name <nombre> --create-only` 
+
 
 ## Stack
 
 - NestJS
 - Prisma
 - Postgres
+- Docker
+- class-validator
+- class-transformer
