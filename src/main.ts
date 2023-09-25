@@ -15,6 +15,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Bookmark API')
+    .addBearerAuth()
     .setDescription('Bookmark API description')
     .setVersion('1.0')
     .addTag('bookmark')
