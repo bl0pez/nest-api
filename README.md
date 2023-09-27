@@ -17,8 +17,8 @@
 
 # Prisma Studio
 
-- modo test: `npx detenv -e .env.test -- prisma studio`
-- modo dev: `npx detenv -e .env -- prisma studio`
+- modo test: `npx dotenv -e .env.test -- prisma studio`
+- modo dev: `npx dotenv -e .env -- prisma studio`
 
 ## Nestjs cli
 

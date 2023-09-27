@@ -4,6 +4,7 @@ import * as pactum from 'pactum';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { AuthDto } from 'src/auth/dto';
+import { UserUpdateDto } from 'src/user/dto';
 
 describe('App e2e', () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -128,7 +129,25 @@ describe('App e2e', () => {
       });
     });
 
-    describe('Update profile', () => {});
+    describe('Update profile', () => {
+      it('Should update user', () => {
+        const dto: UserUpdateDto = {
+          firstName: 'John',
+          lastName: 'Doe',
+        };
+
+        return pactum
+          .spec()
+          .patch('users')
+          .withHeaders({
+            Authorization: 'Bearer $S{userAt}',
+          })
+          .withBody(dto)
+          .expectStatus(200)
+          .expectBodyContains(dto.firstName)
+          .expectBodyContains(dto.lastName);
+      });
+    });
   });
 
   describe('Bookmark', () => {
