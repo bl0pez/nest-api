@@ -7,7 +7,18 @@
 1. Clone el repositorio.
 2. Ejecute `docker-compose up -d` para iniciar la base de datos.
 3. Ejecute `npm install` para instalar las dependencias.
-4. Ejecute `npm run start:dev` para iniciar el proyecto.
+4. Renombre el archivo `.env.example` a `.env` y complete las variables de entorno.
+5. Ejecute `npm run start:dev` para iniciar el proyecto.
+
+# Run tests
+
+1. Renombre el archivo `.env.test.example` a `.env.test` y complete las variables de entorno.
+2. Ejecute `npm run test:e2e` para ejecutar los tests.
+
+# Prisma Studio
+
+- modo test: `npx detenv -e .env.test -- prisma studio`
+- modo dev: `npx detenv -e .env -- prisma studio`
 
 ## Nestjs cli
 
