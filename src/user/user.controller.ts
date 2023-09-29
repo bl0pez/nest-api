@@ -22,10 +22,10 @@ export class UserController {
 
   @ApiResponse({
     status: HttpStatus.OK,
-    description: 'Perfil de usuário',
+    description: 'Obtiene el perfil de usuario',
   })
   @Get('/profile')
-  public getUser(@GetUser() user: User) {
+  public getUser(@GetUser() user: User): User {
     return user;
   }
 
@@ -34,7 +34,10 @@ export class UserController {
     description: 'Atualiza perfil de usuário',
   })
   @Patch()
-  public updateUser(@GetUser('id') userId: number, @Body() dto: UserUpdateDto) {
+  public updateUser(
+    @GetUser('id') userId: number,
+    @Body() dto: UserUpdateDto,
+  ): Promise<Omit<User, 'password'>> {
     return this.userService.UserUpdate(userId, dto);
   }
 }

@@ -16,9 +16,8 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Bookmark API')
     .addBearerAuth()
-    .setDescription('Bookmark API description')
+    .setDescription('Registrate o inicia sesión y crea tus marcadores')
     .setVersion('1.0')
-    .addTag('bookmark')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

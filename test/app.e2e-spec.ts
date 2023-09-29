@@ -5,8 +5,7 @@ import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { AuthDto } from 'src/auth/dto';
 import { UserUpdateDto } from 'src/user/dto';
-import { CreateBookmarkDto } from 'src/bookmark/dto';
-import { UpdateBookmarkDto } from 'src/bookmark/dto/update-bookmark.dto copy';
+import { CreateBookmarkDto, UpdateBookmarkDto } from 'src/bookmark/dto';
 
 describe('App e2e', () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

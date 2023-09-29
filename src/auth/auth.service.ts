@@ -13,7 +13,7 @@ export class AuthService {
     private readonly jwt: JwtService,
   ) {}
 
-  public async login(dto: AuthDto) {
+  public async login(dto: AuthDto): Promise<{ access_token: string }> {
     const user = await this.prisma.user.findUnique({
       where: {
         emial: dto.email,

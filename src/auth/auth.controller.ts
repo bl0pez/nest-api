@@ -10,18 +10,20 @@ export class AuthController {
 
   @ApiResponse({
     description: 'Creación de usuario exitosa',
+    status: HttpStatus.CREATED,
   })
   @Post('register')
-  public async signup(@Body() dto: AuthDto) {
+  public async signup(@Body() dto: AuthDto): Promise<{ access_token: string }> {
     return await this.authService.register(dto);
   }
 
   @ApiResponse({
     description: 'Inicio de sesión exitoso',
+    status: HttpStatus.OK,
   })
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  public async signin(@Body() dto: AuthDto) {
+  public async signin(@Body() dto: AuthDto): Promise<{ access_token: string }> {
     return this.authService.login(dto);
   }
 }
